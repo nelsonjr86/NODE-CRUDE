@@ -1,0 +1,42 @@
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+<table class="table table-striped table-bordered" class="table" id="minhaTabela">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Outros</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each pessoa}}
+        <tr>
+            <td>{{nome}}</td>
+            <td>{{email}}</td>
+            <td>{{telefone}}</td>
+            <td>{{cidade}}</td>
+            <td>
+                <ul class="list-inline m-0">
+                    <li class="list-inline-item">
+                        <!--<a href="/pessoa/edit/{{_id}}" style="font-size:18px;"><i class="fas fa-edit" ></i></a>-->
+                        <a href="/pessoa/edit/{{_id}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <form action="/pessoa/delete/{{_id}}?_method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                             <!--<button class="btn btn-default" type="submit"><i class="fa fa-trash fa-lg" style="font-size:24px;color:red" aria-hidden="true"></i></button>-->
+                            <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+    </div>
+  </div>
+</div>
